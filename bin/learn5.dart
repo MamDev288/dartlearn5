@@ -13,4 +13,6 @@ void main(List<String> arguments) {
   learn5.spamCreateFile();
   print('Cau 6');
   learn5.checkAndDeleteFile();
+  print('Cau 7');
+  learn5.studentManagent();
 }

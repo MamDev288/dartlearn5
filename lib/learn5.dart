@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 int calculate() {
   return 6 * 7;
@@ -50,3 +51,22 @@ void checkAndDeleteFile() async {
     f.deleteSync();
   }
 }
+void studentManagent() async {
+  File f = File('student-managent.csv');
+  for(int i = 0;i<100;i++){
+    var r = Random();
+    f.writeAsStringSync('${generateRandomString(10)},${r.nextInt(21)}\n',mode: FileMode.append);
+  }
+  List<String> dataTable = [];
+  if (f.existsSync()) {
+    dataTable  = f.readAsStringSync().split('\n');
+  }
+  dataTable.forEach((element) {
+    print('$element \n');
+  });
+}
+String generateRandomString(int len) {
+  var r = Random();
+  return String.fromCharCodes(List.generate(len, (index) => r.nextInt(33) + 89));
+}
+
